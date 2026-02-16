@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <meta name="description" content="Award-winning personal portfolio — developer, designer, creator.">
+    <meta name="theme-color" content="#0B0D17">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- GSAP (animation engine) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ═══ PRELOADER ═══ -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__inner">
+            <div class="preloader__ring"></div>
+            <span class="preloader__text">Loading</span>
+        </div>
+    </div>
+
+    <!-- ═══ CUSTOM CURSOR ═══ -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- ═══ SCROLL PROGRESS BAR ═══ -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <header class="navbar" id="navbar">
+        <div class="navbar__container">
+            <a href="#hero" class="navbar__logo" id="navLogo"></a>
+            <nav class="navbar__menu" id="navMenu">
+                <a href="#hero" class="navbar__link active" data-section="hero">Home</a>
+                <a href="#about" class="navbar__link" data-section="about">About</a>
+                <a href="#skills" class="navbar__link" data-section="skills">Skills</a>
+                <a href="#projects" class="navbar__link" data-section="projects">Work</a>
+                <a href="#experience" class="navbar__link" data-section="experience">Experience</a>
+                <a href="#contact" class="navbar__link" data-section="contact">Contact</a>
+            </nav>
+            <div class="navbar__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="navbar__hamburger" id="navHamburger" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══ MOBILE MENU OVERLAY ═══ -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu__nav" id="mobileMenuNav"></nav>
+    </div>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="hero">
+            <canvas class="hero__canvas" id="heroCanvas"></canvas>
+            <div class="hero__container">
+                <div class="hero__badge" id="heroBadge">👋 Welcome to my portfolio</div>
+                <h1 class="hero__title" id="heroTitle"></h1>
+                <div class="hero__roles" id="heroRoles">
+                    <span class="hero__role-prefix">I'm a&nbsp;</span>
+                    <span class="hero__role-text" id="heroRoleText"></span>
+                    <span class="hero__role-cursor">|</span>
+                </div>
+                <p class="hero__tagline" id="heroTagline"></p>
+                <div class="hero__cta">
+                    <a href="#projects" class="btn btn--primary" id="heroCta">
+                        <span>View My Work</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="#contact" class="btn btn--ghost" id="heroCtaSecondary">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+                <div class="hero__scroll-indicator">
+                    <div class="hero__scroll-mouse">
+                        <div class="hero__scroll-wheel"></div>
+                    </div>
+                    <span>Scroll Down</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label">01 — About</span>
+                    <h2 class="section__title">About Me</h2>
+                </div>
+                <div class="about__grid">
+                    <div class="about__avatar-wrapper">
+                        <div class="about__avatar" id="aboutAvatar"></div>
+                        <div class="about__avatar-glow"></div>
+                    </div>
+                    <div class="about__content" id="aboutContent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section skills">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label">02 — Skills</span>
+                    <h2 class="section__title">My Expertise</h2>
+                </div>
+                <div class="skills__grid" id="skillsGrid"></div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label">03 — Work</span>
+                    <h2 class="section__title">Featured Projects</h2>
+                </div>
+                <div class="projects__filters" id="projectFilters"></div>
+                <div class="projects__grid" id="projectsGrid"></div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="section experience">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label">04 — Journey</span>
+                    <h2 class="section__title">Experience</h2>
+                </div>
+                <div class="timeline" id="timeline"></div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__label">05 — Contact</span>
+                    <h2 class="section__title">Let's Work Together</h2>
+                </div>
+                <div class="contact__grid">
+                    <div class="contact__info" id="contactInfo"></div>
+                    <form class="contact__form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" id="formName" required autocomplete="name">
+                            <label for="formName">Your Name</label>
+                            <div class="form-group__line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="formEmail" required autocomplete="email">
+                            <label for="formEmail">Email Address</label>
+                            <div class="form-group__line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" id="formSubject" required>
+                            <label for="formSubject">Subject</label>
+                            <div class="form-group__line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="formMessage" rows="4" required></textarea>
+                            <label for="formMessage">Your Message</label>
+                            <div class="form-group__line"></div>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">
+                            <span>Send Message</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand" id="footerBrand"></div>
+                <div class="footer__social" id="footerSocial"></div>
+            </div>
+            <div class="footer__bottom" id="footerBottom"></div>
+        </div>
+    </footer>
+
+    <!-- ═══ BACK TO TOP ═══ -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- ═══ PROJECT MODAL ═══ -->
+    <div class="modal" id="projectModal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content" id="modalContent"></div>
+    </div>
+
+    <!-- Scripts (config first, then components, then main) -->
+    <script src="config.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/hero.js"></script>
+    <script src="components/projects.js"></script>
+    <script src="components/skills.js"></script>
+    <script src="components/contact.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
