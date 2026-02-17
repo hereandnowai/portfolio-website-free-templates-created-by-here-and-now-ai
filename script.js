@@ -48,10 +48,17 @@ const App = {
     if (!t) return;
     const root = document.documentElement;
 
-    const map = {
+    // Common variables that apply to both themes
+    const commonMap = {
       '--primary': t.primaryColor,
       '--secondary': t.secondaryColor,
       '--accent': t.accentColor,
+      '--radius': t.borderRadius,
+      '--font': t.fontFamily,
+    };
+
+    // Dark theme specific variables from config (default)
+    const darkMap = {
       '--bg-primary': t.bgPrimary,
       '--bg-secondary': t.bgSecondary,
       '--bg-card': t.bgCard,
@@ -60,13 +67,25 @@ const App = {
       '--text-muted': t.textMuted,
       '--glass-bg': t.glassBg,
       '--glass-border': t.glassBorder,
-      '--radius': t.borderRadius,
-      '--font': t.fontFamily,
     };
 
-    Object.entries(map).forEach(([prop, value]) => {
+    // Apply common variables as inline styles
+    Object.entries(commonMap).forEach(([prop, value]) => {
       if (value) root.style.setProperty(prop, value);
     });
+
+    // Apply dark theme variables via a style tag to allow light theme overrides
+    const styleEl = document.createElement('style');
+    styleEl.id = 'dynamic-theme-config';
+    styleEl.textContent = `
+      :root:not([data-theme="light"]) {
+        ${Object.entries(darkMap)
+          .filter(([_, v]) => v)
+          .map(([k, v]) => `${k}: ${v};`)
+          .join('\n        ')}
+      }
+    `;
+    document.head.appendChild(styleEl);
   },
 
   /** Render the About section */

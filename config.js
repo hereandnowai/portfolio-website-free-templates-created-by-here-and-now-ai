@@ -11,98 +11,97 @@
 const CONFIG = {
 
   // ─── Personal Info ───────────────────────────────────────────
-  name: "Adithya",
-  title: "Full Stack Developer & UI Designer",
-  tagline: "Building intelligent systems that bridge design and technology.",
-  roles: ["Full Stack Developer", "UI/UX Designer", "AI Enthusiast", "Open Source Contributor"],
+  name: "Ruthran Raghavan",
+  title: "Chief AI Scientist",
+  tagline: "Designing and deploying enterprise-grade AI systems that deliver measurable ROI.",
+  roles: ["Chief AI Scientist", "AI Automation Expert", "Multi-Agent Orchestrator", "Corporate Trainer"],
 
   about: {
     description: [
-      "I'm a passionate developer based in India who thrives at the intersection of design and engineering. I build pixel-perfect, performant, and accessible digital experiences.",
-      "With 5+ years of experience shipping products used by thousands, I specialize in crafting modern web applications and intelligent systems that solve real-world problems.",
-      "Currently focused on building human-centered AI products at Here & Now AI."
+      "I'm a Chief AI Scientist with 10+ years of experience designing, developing, and deploying enterprise-grade AI systems, specializing in LLM-powered applications and multi-agent orchestration.",
+      "Expert in building advanced RAG pipelines and complex automation workflows using LangChain and LangGraph to bridge the gap between cutting-edge AI research and real-world scalability.",
+      "A leading corporate trainer who has delivered 10,000+ hours of AI training to over 5,000 learners worldwide, enabling organizations to achieve 10x productivity improvements."
     ],
-    resumeUrl: "#",
-    avatarUrl: ""  // Leave empty to use generated initials avatar
+    resumeUrl: "docs/resume.pdf",
+    avatarUrl: "assets/images/profile.jpeg"  // Leave empty to use generated initials avatar
   },
 
   // ─── Social Links ───────────────────────────────────────────
   social: {
-    github: "https://github.com/adithya",
-    linkedin: "https://linkedin.com/in/adithya",
-    twitter: "https://twitter.com/adithya",
-    dribbble: "https://dribbble.com/adithya",
-    email: "hello@adithya.dev"
+    github: "https://github.com/hereandnowai",
+    linkedin: "https://linkedin.com/in/ruthranraghavan",
+    twitter: "https://twitter.com/hereandnowai",
+    email: "ruthran@hereandnow.co.in"
   },
 
   // ─── Skills ─────────────────────────────────────────────────
   skills: [
-    { name: "JavaScript / TypeScript", level: 95, icon: "⚡" },
-    { name: "React / Next.js",         level: 90, icon: "⚛️" },
-    { name: "Node.js / Express",       level: 88, icon: "🟢" },
-    { name: "Python / AI-ML",          level: 85, icon: "🐍" },
-    { name: "CSS / Tailwind",          level: 92, icon: "🎨" },
-    { name: "PostgreSQL / MongoDB",    level: 80, icon: "🗄️" },
-    { name: "Docker / DevOps",         level: 75, icon: "🐳" },
-    { name: "Figma / UI Design",       level: 88, icon: "✏️" },
+    { name: "LLMs / GenAI (GPT-5, Gemini)", level: 98, icon: "🤖" },
+    { name: "LangChain / LangGraph",       level: 95, icon: "🦜" },
+    { name: "Python / AI-ML Stack",       level: 95, icon: "🐍" },
+    { name: "Multi-Agent Systems",        level: 92, icon: "🤝" },
+    { name: "PyTorch / TensorFlow",       level: 90, icon: "🔥" },
+    { name: "RAG / Elasticsearch",        level: 90, icon: "📚" },
+    { name: "MCP Servers / Automation",   level: 88, icon: "⚙️" },
+    { name: "Docker / Kubernetes / Azure",level: 85, icon: "🐳" },
   ],
 
   // ─── Projects ───────────────────────────────────────────────
   projects: [
     {
-      title: "Neural Canvas",
-      description: "An AI-powered generative art platform that creates stunning visuals from text prompts. Built with WebGL shaders and a custom diffusion pipeline.",
-      tech: ["JavaScript", "WebGL", "Python", "TensorFlow"],
+      title: "Probot AI Professor",
+      description: "A multimodal AI professor capable of natural conversation, adaptive curriculum delivery, and speech synthesis for personalized learning.",
+      tech: ["Generative AI", "Speech Synthesis", "LLMs", "Python"],
       liveUrl: "#",
       githubUrl: "#",
-      image: "",  // Leave empty for auto-generated gradient card
+      image: "",
       featured: true,
       category: "ai"
     },
     {
-      title: "FlowState",
-      description: "A productivity dashboard that adapts to your work patterns using ML. Features real-time collaboration, smart scheduling, and focus analytics.",
-      tech: ["React", "Node.js", "PostgreSQL", "WebSockets"],
+      title: "Enterprise Multi-Agent Orchestrator",
+      description: "A complex multi-agent system built with LangGraph for autonomous enterprise operations, streamlining high-complexity workflows.",
+      tech: ["LangGraph", "LangChain", "OpenAI", "Python"],
       liveUrl: "#",
       githubUrl: "#",
       image: "",
       featured: true,
-      category: "web"
+      category: "automation"
     },
     {
-      title: "Synthwave UI",
-      description: "A premium open-source component library with 200+ components, dark mode, animations, and full accessibility support.",
-      tech: ["TypeScript", "CSS", "Storybook", "Figma"],
+      title: "Advanced RAG Pipelines",
+      description: "Large-scale Retrieval-Augmented Generation systems integrated with Elasticsearch and Haystack, boosting search accuracy by over 40%.",
+      tech: ["Elasticsearch", "Haystack", "RAG", "LLMs"],
       liveUrl: "#",
       githubUrl: "#",
       image: "",
       featured: true,
-      category: "design"
+      category: "ai"
     },
     {
-      title: "CloudDeploy CLI",
-      description: "A zero-config deployment tool for modern web apps. Push to any cloud provider with a single command.",
-      tech: ["Go", "Docker", "AWS", "CLI"],
+      title: "MCP Automation Infrastructure",
+      description: "Developed robust Model Context Protocol (MCP) servers and clients for seamless communication between AI agents and external tools.",
+      tech: ["MCP", "TypeScript", "Node.js", "AI Agents"],
       liveUrl: "#",
       githubUrl: "#",
       image: "",
       featured: false,
-      category: "devtools"
+      category: "automation"
     },
     {
-      title: "DataPulse",
-      description: "Real-time data visualization engine for IoT sensor networks. Handles millions of data points with smooth 60fps rendering.",
-      tech: ["D3.js", "WebSockets", "Canvas API", "Node.js"],
+      title: "Predictive Maintenance AI",
+      description: "Predictive maintenance agents for industrial deployments that increased equipment uptime by 20% using real-time sensor data.",
+      tech: ["Python", "TensorFlow", "IoT", "Scikit-Learn"],
       liveUrl: "#",
       githubUrl: "#",
       image: "",
       featured: false,
-      category: "web"
+      category: "industrial"
     },
     {
-      title: "PixelForge",
-      description: "Browser-based image editor with AI-powered tools — background removal, style transfer, and intelligent cropping.",
-      tech: ["Canvas API", "WASM", "TensorFlow.js", "React"],
+      title: "AI Language Assessment Engine",
+      description: "An NLP-powered language evaluation system using CNNs and RNNs, improving assessment accuracy by 30% over manual methods.",
+      tech: ["NLP", "CNNs", "RNNs", "Python"],
       liveUrl: "#",
       githubUrl: "#",
       image: "",
@@ -114,32 +113,25 @@ const CONFIG = {
   // ─── Experience / Timeline ──────────────────────────────────
   experience: [
     {
-      role: "Lead Frontend Engineer",
-      company: "Here & Now AI",
-      period: "2024 — Present",
-      description: "Leading the frontend architecture for AI-powered products. Building design systems and performance-critical interfaces.",
-      tech: ["React", "TypeScript", "GSAP", "WebGL"]
+      role: "Chief AI Scientist",
+      company: "Here And Now AI",
+      period: "2018 — Present",
+      description: "Leading the development of enterprise-grade AI automation frameworks and multi-agent systems. Delivered 180+ AI agents across finance, healthcare, and manufacturing sectors.",
+      tech: ["LangGraph", "LangChain", "OpenAI", "Python", "Azure"]
     },
     {
-      role: "Senior Full Stack Developer",
-      company: "TechNova Labs",
-      period: "2022 — 2024",
-      description: "Architected and shipped 3 major SaaS products serving 50K+ users. Reduced load times by 60% through performance optimizations.",
-      tech: ["Next.js", "Node.js", "PostgreSQL", "AWS"]
+      role: "Data Scientist",
+      company: "HERE AND NOW – The Language Institute",
+      period: "2011 — 2023",
+      description: "Architected predictive modeling systems for personalized education. Built AI-powered language assessment engines reducing manual processing time by 40%.",
+      tech: ["Python", "TensorFlow", "Scikit-Learn", "SVM", "NLP"]
     },
     {
-      role: "Frontend Developer",
-      company: "DesignCraft Studio",
-      period: "2020 — 2022",
-      description: "Built interactive web experiences for premium brands. Specialized in animations, micro-interactions, and responsive design.",
-      tech: ["JavaScript", "GSAP", "Three.js", "CSS"]
-    },
-    {
-      role: "Freelance Developer & Designer",
-      company: "Self-Employed",
-      period: "2018 — 2020",
-      description: "Delivered 30+ projects for startups and small businesses. Full design-to-deployment workflow.",
-      tech: ["HTML/CSS", "JavaScript", "Figma", "WordPress"]
+      role: "M.Sc. Statistics & Psychology",
+      company: "Madras University",
+      period: "2010 — 2012",
+      description: "Specialized in advanced research and modeling, bridging cognitive neuroscience with AI architecture for human-like interaction design.",
+      tech: ["Statistical Modeling", "Cognitive Science", "Predictive Analytics"]
     }
   ],
 

@@ -33,7 +33,7 @@ const Footer = {
     const bottom = document.getElementById('footerBottom');
     if (bottom) {
       bottom.innerHTML = `
-        <p>© ${new Date().getFullYear()} ${CONFIG.name}. Crafted with passion and precision.</p>
+        <p>© ${new Date().getFullYear()} ${CONFIG.name}. Chief AI Scientist at HERE AND NOW AI - Artificial Intelligence Research Institute</p>
       `;
     }
   }
