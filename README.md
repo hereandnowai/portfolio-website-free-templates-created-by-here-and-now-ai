@@ -1,6 +1,13 @@
-# Portfolio Website Templates Library
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hereandnowai/images/refs/heads/main/logos/logo-of-here-and-now-ai.png" alt="HERE AND NOW AI Logo" width="300">
+</p>
 
-A collection of simple, attractive, and fully responsive portfolio website templates built with pure HTML, CSS, and Vanilla JavaScript. No frameworks, no build tools, just clean code.
+# 🚀 Portfolio Website Templates Library
+### *AI is Good*
+
+A professional collection of simple, attractive, and fully responsive portfolio website templates. Built with **pure HTML, CSS, and Vanilla JavaScript**—no frameworks, no build tools, just clean, high-performance code.
+
+---
 
 ## 🚀 Templates
 
@@ -12,25 +19,40 @@ A collection of simple, attractive, and fully responsive portfolio website templ
 
 ## 🛠 Features
 
-- **Pure HTML/CSS/JS**: No dependencies or complex setup.
-- **Responsive**: Mobile-first design that works on all devices.
-- **Easy Customization**: Uses CSS variables for theming and clean semantic HTML.
-- **Interactive**: Smooth scrolling, galleries, and form validation using Vanilla JS.
-- **SEO Friendly**: Structured for search engine visibility.
+- **Pure HTML/CSS/JS**: Zero dependencies or complex setups.
+- **Responsive & Mobile-First**: Flawless design across all screen sizes.
+- **Ultra-Fast Customization**: Uses CSS variables and centralized `config.js`.
+- **High SEO Visibility**: Semantic HTML structure optimized for search engines.
+- **Interactive UX**: Smooth scrolling, project galleries, and form validation.
 
 ## 📂 Project Structure
 
-- `portfolio-template-001/`: The first basic template.
-- `templates/`: Future template variations.
 - `assets/`: Shared placeholder images and icons.
+- `components/`: Modular JavaScript components for the portfolio.
+- `config.js`: The central control file for all personal data.
 - `docs/`: Customization and deployment guides.
 
 ## 📝 Usage
 
-Each template is designed to be self-contained. Simply copy the template folder or the single HTML/CSS/JS files to your project and start customizing the content.
+Get started in minutes:
+1. Clone this repository.
+2. Follow the detailed steps in [BEGINNERS_GUIDE.md](BEGINNERS_GUIDE.md).
+3. Update [config.js](config.js) with your personal details.
 
-Check the `docs/` folder for detailed customization and deployment instructions.
+## 🤝 Connect with Us
+
+Stay updated with the latest AI-powered templates and tools from **HERE AND NOW AI**.
+
+- **Website**: [hereandnowai.com](https://hereandnowai.com)
+- **LinkedIn**: [HERE AND NOW AI](https://www.linkedin.com/company/hereandnowai/)
+- **X (Twitter)**: [@hereandnow_ai](https://x.com/hereandnow_ai)
+- **Instagram**: [@hereandnow_ai](https://instagram.com/hereandnow_ai)
+- **YouTube**: [Subscribe on YouTube](https://youtube.com/@hereandnow_ai)
+- **GitHub**: [Follow us on GitHub](https://github.com/hereandnowai)
+- **Email**: [info@hereandnowai.com](mailto:info@hereandnowai.com)
+- **Phone**: +91 996 296 1000
 
 ## 📄 License
 
-MIT License. Feel free to use these templates for your personal or commercial projects.
+MIT License. Developed with ❤️ by **HERE AND NOW AI**.
+
