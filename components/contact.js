@@ -4,6 +4,21 @@
  */
 
 const Contact = {
+  isEmailJsPlaceholder(value) {
+    return !value || value === 'YOUR_PUBLIC_KEY' || value === 'PROD_EMAILJS_PUBLIC_KEY';
+  },
+
+  ensureHiddenField(form, fieldName, fieldValue) {
+    let input = form.querySelector(`input[name="${fieldName}"]`);
+    if (!input) {
+      input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = fieldName;
+      form.appendChild(input);
+    }
+    input.value = fieldValue || '';
+  },
+
   init() {
     this.renderContactInfo();
     this.renderExperience();
@@ -83,10 +98,21 @@ const Contact = {
       const originalHTML = btn.innerHTML;
 
       // Check if EmailJS is configured
-      if (!CONFIG.emailjs || CONFIG.emailjs.publicKey === 'YOUR_PUBLIC_KEY') {
+      if (!CONFIG.emailjs || this.isEmailJsPlaceholder(CONFIG.emailjs.publicKey)) {
         this.showFormStatus(form, 'Please configure EmailJS credentials in config.js', 'error');
         return;
       }
+
+      // Keep compatibility with both EmailJS variable naming styles.
+      // Students may use {{name}}/{{email}} or {{from_name}}/{{from_email}} in templates.
+      const nameValue = form.querySelector('input[name="name"]')?.value || '';
+      const emailValue = form.querySelector('input[name="email"]')?.value || '';
+      const subjectValue = form.querySelector('input[name="subject"]')?.value || '';
+
+      this.ensureHiddenField(form, 'from_name', nameValue);
+      this.ensureHiddenField(form, 'from_email', emailValue);
+      this.ensureHiddenField(form, 'reply_to', emailValue);
+      this.ensureHiddenField(form, 'from_subject', subjectValue);
 
       // Loading state
       btn.disabled = true;

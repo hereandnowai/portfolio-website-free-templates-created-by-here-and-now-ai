@@ -233,7 +233,10 @@ const App = {
 
   /** Initialize EmailJS if configured */
   initEmailJS() {
-    if (typeof emailjs !== 'undefined' && CONFIG.emailjs && CONFIG.emailjs.publicKey !== 'YOUR_PUBLIC_KEY') {
+    const publicKey = CONFIG?.emailjs?.publicKey;
+    const isConfigured = publicKey && publicKey !== 'YOUR_PUBLIC_KEY' && publicKey !== 'PROD_EMAILJS_PUBLIC_KEY';
+
+    if (typeof emailjs !== 'undefined' && CONFIG.emailjs && isConfigured) {
       emailjs.init({ publicKey: CONFIG.emailjs.publicKey });
     }
   },
