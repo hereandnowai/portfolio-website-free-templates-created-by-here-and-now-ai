@@ -110,13 +110,17 @@ const Contact = {
         return;
       }
 
+      // Include key metadata in message so templates with only {{message}} still show it.
+      const composedMessageValue = `Subject: ${subjectValue}\nPhone: ${phoneValue}\n\n${messageValue}`;
+
       const templateParams = {
         // Common names used in simple templates
         name: nameValue,
         email: emailValue,
         phone: phoneValue,
         subject: subjectValue,
-        message: messageValue,
+        message: composedMessageValue,
+        raw_message: messageValue,
         // Common names used in EmailJS examples
         from_name: nameValue,
         from_email: emailValue,
@@ -127,13 +131,19 @@ const Contact = {
         user_name: nameValue,
         user_email: emailValue,
         user_phone: phoneValue,
+        user_subject: subjectValue,
         sender_name: nameValue,
         sender_email: emailValue,
         sender_phone: phoneValue,
+        sender_subject: subjectValue,
         phone_number: phoneValue,
+        mobile_number: phoneValue,
+        contact_number: phoneValue,
         mobile: phoneValue,
+        email_subject: subjectValue,
         fromName: nameValue,
-        fromEmail: emailValue
+        fromEmail: emailValue,
+        fromSubject: subjectValue
       };
 
       // Loading state
