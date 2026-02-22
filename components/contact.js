@@ -83,6 +83,11 @@ const Contact = {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       const btn = form.querySelector('button[type="submit"]');
       const originalHTML = btn.innerHTML;
 
@@ -96,11 +101,12 @@ const Contact = {
       const formData = new FormData(form);
       const nameValue = String(formData.get('name') || '').trim();
       const emailValue = String(formData.get('email') || '').trim();
+      const phoneValue = String(formData.get('phone') || '').trim();
       const subjectValue = String(formData.get('subject') || '').trim();
       const messageValue = String(formData.get('message') || '').trim();
 
-      if (!nameValue || !emailValue) {
-        this.showFormStatus(form, 'Please enter both your name and email address.', 'error');
+      if (!nameValue || !emailValue || !phoneValue || !subjectValue || !messageValue) {
+        this.showFormStatus(form, 'Please fill all required fields before submitting.', 'error');
         return;
       }
 
@@ -108,18 +114,24 @@ const Contact = {
         // Common names used in simple templates
         name: nameValue,
         email: emailValue,
+        phone: phoneValue,
         subject: subjectValue,
         message: messageValue,
         // Common names used in EmailJS examples
         from_name: nameValue,
         from_email: emailValue,
+        from_phone: phoneValue,
         from_subject: subjectValue,
         reply_to: emailValue,
         // Additional aliases used by some templates/examples
         user_name: nameValue,
         user_email: emailValue,
+        user_phone: phoneValue,
         sender_name: nameValue,
         sender_email: emailValue,
+        sender_phone: phoneValue,
+        phone_number: phoneValue,
+        mobile: phoneValue,
         fromName: nameValue,
         fromEmail: emailValue
       };
