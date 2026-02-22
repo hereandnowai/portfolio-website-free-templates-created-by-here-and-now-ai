@@ -48,17 +48,27 @@ echo 💾 Committing files...
 git add .
 git commit -m "Initial commit - My Personal Portfolio" --quiet
 
-:: 5. Create new repository on GitHub and push
-echo 🚀 Creating repository "!REPO_NAME!" on your GitHub account...
-gh repo create "!REPO_NAME!" --public --source=. --remote=origin --push
+:: 5. Create repo if needed, otherwise connect and push
+for /f "tokens=*" %%a in ('gh api user -q .login') do set "GITHUB_USER=%%a"
+set "FULL_REPO=!GITHUB_USER!/!REPO_NAME!"
 
-if %ERRORLEVEL% neq 0 (
-    echo ❌ Failed to create repository. It might already exist on your account.
+gh repo view "!FULL_REPO!" >nul 2>nul
+if !ERRORLEVEL! equ 0 (
+    echo 📂 Repository "!FULL_REPO!" already exists. Connecting and pushing...
+    git remote add origin "https://github.com/!FULL_REPO!.git" 2>nul
+    git push -u origin main
+) else (
+    echo 🚀 Creating repository "!FULL_REPO!" on your GitHub account...
+    gh repo create "!FULL_REPO!" --public --source=. --remote=origin --push
+)
+
+if !ERRORLEVEL! neq 0 (
+    echo ❌ Failed to synchronize repository with GitHub.
     pause
     exit /b 1
 )
 
-echo ✅ Repository created and code pushed successfully!
+echo ✅ Repository synchronized successfully!
 
 :: 6. Set GitHub Secrets (Automated)
 echo 🔐 Setting up EmailJS secrets...
@@ -72,16 +82,12 @@ if "!EMAILJS_SERVICE_ID!"=="" set /p "EMAILJS_SERVICE_ID=Enter EmailJS Service I
 if "!EMAILJS_TEMPLATE_ID!"=="" set /p "EMAILJS_TEMPLATE_ID=Enter EmailJS Template ID: "
 
 echo Setting secrets in GitHub...
-gh secret set EMAILJS_PUBLIC_KEY --body "!EMAILJS_PUBLIC_KEY!"
-gh secret set EMAILJS_SERVICE_ID --body "!EMAILJS_SERVICE_ID!"
-gh secret set EMAILJS_TEMPLATE_ID --body "!EMAILJS_TEMPLATE_ID!"
+gh secret set EMAILJS_PUBLIC_KEY --repo "!FULL_REPO!" --body "!EMAILJS_PUBLIC_KEY!"
+gh secret set EMAILJS_SERVICE_ID --repo "!FULL_REPO!" --body "!EMAILJS_SERVICE_ID!"
+gh secret set EMAILJS_TEMPLATE_ID --repo "!FULL_REPO!" --body "!EMAILJS_TEMPLATE_ID!"
 
-:: 7. Enable GitHub Actions for Deployment
-echo 🌐 Configuring GitHub Actions and Pages...
-gh repo edit "!REPO_NAME!" --enable-pages --pages-build-type workflow
-
-:: Get GitHub username for the link
-for /f "tokens=*" %%a in ('gh api user -q .login') do set "GITHUB_USER=%%a"
+:: 7. Trigger deployment using workflow in repository
+echo 🌐 GitHub Actions workflow will handle Pages deployment...
 
 echo.
 echo 🎉 SUCCESS! Your secrets are set and your deployment is triggered via GitHub Actions.
